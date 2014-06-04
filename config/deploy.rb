@@ -1,25 +1,26 @@
-set :application, "set your application name here"
-set :repository,  "set your repository location here"
+# Essential configuration
+set :application, "app_name" # <- Make sure you at least set this!
+set :domain, "#{application}.com"
+set :repository, "git@github.com:your_github_account/#{application}.git"
 
-# set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
-# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
+# If you've got a single server, modify this block accordingly
+server "ip.or.hostname", :web, :app, :db, :primary => true # CONFIGURE THIS...
+set :deploy_to, "/srv/www/#{application}"
+set :branch, "master"
 
-role :web, "your web-server here"                          # Your HTTP server, Apache/etc
-role :app, "your app-server here"                          # This may be the same as your `Web` server
-role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
-role :db,  "your slave db-server here"
+# If you have multiple servers, do something like the following instead of
+# the block above. See the docs for more information:
+# https://github.com/capistrano/capistrano/wiki/2.x-Multistage-Extension
+# set :stages, %w(production staging)
+# set :default_stage, "staging"
+# require 'capistrano/ext/multistage'
 
-# if you want to clean up old releases on each deploy uncomment this:
-# after "deploy:restart", "deploy:cleanup"
+# Settings common to install and deploy
+set :user, "deploy" # This is not easily changeable, as recipes depend on it
+set :use_sudo, false
 
-# if you're still using the script/reaper helper you will need
-# these http://github.com/rails/irs_process_scripts
-
-# If you are using Passenger mod_rails uncomment this:
-# namespace :deploy do
-#   task :start do ; end
-#   task :stop do ; end
-#   task :restart, :roles => :app, :except => { :no_release => true } do
-#     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-#   end
-# end
+# Server install configuration
+# set :ruby_version, "1.9.1"        # default 1.9.1, which is actually 1.9.3
+# set :use_rmagick, true            # default false
+# set :root_mail_recipient, 'admin@example.com'
+load 'config/install.rb'
