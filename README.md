@@ -6,7 +6,7 @@
     * `adduser [you]`
     * `addgroup [you] sudo`
     * `su [you]`
-    * add your public key to your 1~/.ssh/authorized_keys1
+    * add your public key to your `~/.ssh/authorized_keys`
     * set permissions: `chmod -R og-rwx ~/.ssh`
 4. `sudo vi /etc/sudoers.d/passwordless` to contain the following:
 
