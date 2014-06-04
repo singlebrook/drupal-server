@@ -22,5 +22,4 @@ load 'config/install/recipes/other/memcached'
 # PHP stuff
 load 'config/install/recipes/language/php'
 load 'config/install/recipes/language/php-memcached'
-load 'config/install/recipes/language/php-fpm'
 load 'config/install/recipes/webserver/apache2_drupal_vhost'
