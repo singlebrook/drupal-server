@@ -15,12 +15,9 @@ set :branch, "master"
 # set :default_stage, "staging"
 # require 'capistrano/ext/multistage'
 
-# Settings common to install and deploy
-set :user, "deploy" # This is not easily changeable, as recipes depend on it
+# Don't change these:
+set :user, "deploy"
 set :use_sudo, false
 
 # Server install configuration
-# set :ruby_version, "1.9.1"        # default 1.9.1, which is actually 1.9.3
-# set :use_rmagick, true            # default false
-# set :root_mail_recipient, 'admin@example.com'
 load 'config/install.rb'
