@@ -5,6 +5,7 @@
 # Required for all Singlebrook-managed servers
 load 'config/install/recipes/base'
 load 'config/install/recipes/security/firewall'
+load 'config/install/recipes/security/no_root_ssh'
 load 'config/install/recipes/security/fail2ban'
 load 'config/install/recipes/mail/postfix'
 load 'config/install/recipes/mail/root_forwarding'
