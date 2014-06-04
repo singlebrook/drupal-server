@@ -1,0 +1,4 @@
+[submodule "config/install/recipes"]
+	path = config/install/recipes
+	url = git@github.com:singlebrook/capistrano-recipes
+	branch = ubuntu12.04
